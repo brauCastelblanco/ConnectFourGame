@@ -1,0 +1,15 @@
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/bin/Debug/net7.0/ConsoleApp8
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/bin/Debug/net7.0/ConsoleApp8.deps.json
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/bin/Debug/net7.0/ConsoleApp8.runtimeconfig.json
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/bin/Debug/net7.0/ConsoleApp8.dll
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/bin/Debug/net7.0/ConsoleApp8.pdb
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.csproj.AssemblyReference.cache
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.GeneratedMSBuildEditorConfig.editorconfig
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.AssemblyInfoInputs.cache
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.AssemblyInfo.cs
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.csproj.CoreCompileInputs.cache
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.dll
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/refint/ConsoleApp8.dll
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.pdb
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ConsoleApp8.genruntimeconfig.cache
+/Users/brauliocastelblancocastro/RiderProjects/ConsoleApp8/ConsoleApp8/obj/Debug/net7.0/ref/ConsoleApp8.dll
