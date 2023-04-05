@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/brauliocastelblancocastro/Desktop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj": {}
+    "/Users/brauliocastelblancocastro/RiderProjects/oop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj": {}
   },
   "projects": {
-    "/Users/brauliocastelblancocastro/Desktop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj": {
+    "/Users/brauliocastelblancocastro/RiderProjects/oop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/brauliocastelblancocastro/Desktop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
+        "projectUniqueName": "/Users/brauliocastelblancocastro/RiderProjects/oop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
         "projectName": "ConsoleApp8",
-        "projectPath": "/Users/brauliocastelblancocastro/Desktop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
+        "projectPath": "/Users/brauliocastelblancocastro/RiderProjects/oop/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
         "packagesPath": "/Users/brauliocastelblancocastro/.nuget/packages/",
-        "outputPath": "/Users/brauliocastelblancocastro/Desktop/ConsoleApp8/ConsoleApp8/obj/",
+        "outputPath": "/Users/brauliocastelblancocastro/RiderProjects/oop/ConsoleApp8/ConsoleApp8/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/brauliocastelblancocastro/.nuget/NuGet/NuGet.Config"

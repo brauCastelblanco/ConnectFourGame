@@ -8,13 +8,6 @@ namespace Activity_04
     {
         static void Main(string[] args)
         {
-            char[] column1 = new char[6] {'#','#','#','#','#','#'};
-            char[] column2 = new char[6] {'#','#','#','#','#','#'};
-            char[] column3 = new char[6] {'#','#','#','#','#','#'};
-            char[] column4 = new char[6] {'#','#','#','#','#','#'};
-            char[] column5 = new char[6] {'#','#','#','#','#','#'};
-            char[] column6 = new char[6] {'#','#','#','#','#','#'};
-            char[] column7 = new char[6] {'#','#','#','#','#','#'};
 
             char[][] jArray = new char[6][];
             jArray[0] = new char[7]{'#','#','#','#','#','#','#'};
