@@ -1,60 +1,103 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.Diagnostics;
-
-namespace Activity_04
+﻿
+namespace ConsoleApp8
 {
-    class Program
+
+
+    public class Board
     {
-        static void Main(string[] args)
+        public string [,] Array { get; set; }
+        
+        
+        public Board()
         {
+            Array = new string [6, 7];
 
-            char[][] jArray = new char[6][];
-            jArray[0] = new char[7]{'#','#','#','#','#','#','#'};
-            jArray[1] = new char[7]{'#','#','#','#','#','#','#'};
-            jArray[2] = new char[7]{'#','#','#','#','#','#','#'};
-            jArray[3] = new char[7]{'#','#','#','#','#','#','#'};
-            jArray[4] = new char[7]{'#','#','#','#','#','#','#'};
-            jArray[5] = new char[7]{'#','#','#','#','#','#','#'};
-
-            foreach (var item in jArray)
+            for (int i = 0; i < Array.GetLength(0); i++) ////filling the Array with #s
             {
-                foreach (var element in item)
+                for (int j = 0; j < Array.GetLength(1); j++)
                 {
-                    Console.Write(element + " ");
-                    
+                    Array[i, j] = "#";
                 }
-                Console.WriteLine();
+
             }
-            //Played by player 1
-            int Counting = 0;
-            int Pressed = 1;
-            jArray[5-Counting][Pressed-1] = 'x';
-            
-            Console.WriteLine("**************");
-            foreach (var item in jArray)
+        }
+
+        public void Print() /////Displaying Array with all the x and ys
+        {
+            for (int i = 1; i <= 7; i++)
             {
-                foreach (var element in item)
-                {
-                    Console.Write(element + " ");
-                    
-                }
-                Console.WriteLine();
+                Console.Write(i + "    ");
             }
 
-            Counting += 1;
-            Pressed = 2;
-            jArray[5-Counting][Pressed-1] = 'o';
-            Console.WriteLine("**************");
-            foreach (var item in jArray)
+            Console.WriteLine();
+            Console.WriteLine();
+            for (int i = 0; i < Array.GetLength(0); i++)
             {
-                foreach (var element in item)
+                for (int j = 0; j < Array.GetLength(1); j++)
                 {
-                    Console.Write(element + " ");
-                    
+                    if (j == 6)
+                    {
+                        Console.Write(Array[i, j]);
+                        Console.Write("\n");
+                    }
+                    else
+                    {
+                        Console.Write(Array[i, j] + "    ");
+                    }
                 }
-                Console.WriteLine();
+            }
+        }
+
+
+        public void AddDisk(int colNumber,
+            string player) ///// adding x or y if space is empty players x or y will take the space
+        {
+            for (int row = 5; row >= 0; row--)
+            {
+                if (Array[row, colNumber - 1] == "#")
+                {
+                    Array[row, colNumber - 1] = player;
+                    return;
+                }
+            }
+        }
+
+       public  bool IsColumnAvailable(int colNumber)
+        {
+            return Array[0, colNumber] == "#";
+        }
+
+
+       public bool IsFull() ////// checking the whole Array to make sure that it's not empty
+        {
+            foreach (var cell in Array)
+            {
+                if (cell == "#")
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+       
+    
+
+}
+
+        internal class Program
+        {
+            public static void Main(string[] args)
+            {
+                
+                 Board board = new Board(); // so far we can make a new board and add xs and ys
+                
+                board.AddDisk(4, "x");
+                board.AddDisk(3, "y");
+                board.AddDisk(2, "y");
+                board.AddDisk(4, "x");
+                board.Print();
+
             }
         }
     }
-}
