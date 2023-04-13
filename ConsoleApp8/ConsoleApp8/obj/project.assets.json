@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/Users/reginasi/.nuget/packages/": {}
+    "/Users/brauliocastelblancocastro/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/reginasi/RiderProjects/ConnectFourGame/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
+      "projectUniqueName": "/Users/brauliocastelblancocastro/Documents/GitHub/ConnectFourGame/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
       "projectName": "ConsoleApp8",
-      "projectPath": "/Users/reginasi/RiderProjects/ConnectFourGame/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
-      "packagesPath": "/Users/reginasi/.nuget/packages/",
-      "outputPath": "/Users/reginasi/RiderProjects/ConnectFourGame/ConsoleApp8/ConsoleApp8/obj/",
+      "projectPath": "/Users/brauliocastelblancocastro/Documents/GitHub/ConnectFourGame/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
+      "packagesPath": "/Users/brauliocastelblancocastro/.nuget/packages/",
+      "outputPath": "/Users/brauliocastelblancocastro/Documents/GitHub/ConnectFourGame/ConsoleApp8/ConsoleApp8/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/reginasi/.nuget/NuGet/NuGet.Config"
+        "/Users/brauliocastelblancocastro/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
       }
     }
   }
