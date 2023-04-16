@@ -5,8 +5,125 @@ namespace ConsoleApp8
 
     public class Board
     {
-        public string [,] Array { get; set; }
         
+        public string [,] Array { get; set; }
+        private int Rows = 7;
+        private int Columns = 6;
+        private string EmptyDisk = "#";
+
+        public bool CheckWinner()
+        {
+            // Check horizontal lines
+            for (var row = 0;  row < Rows; row++)
+            {
+                var cell = Array[row, 0];
+                var count = 1;
+                
+                for (var col = 1; col < Columns; col++)
+                {   
+                    if (Array[row, col] == cell)
+                    {
+                        count += 1;
+                    }
+                    else
+                    {
+                        cell = Array[row, col];
+                        count = 1;
+                    }
+
+                    if (count != 4 || cell == EmptyDisk) continue;
+                    return true;
+                }
+            }
+            
+            // Check vertical lines
+            for (var col = 0;  col < Columns; col++)
+            {
+                var cell = Array[0, col];
+                var count = 1;
+                
+                for (var row = 1; row < Rows; row++)
+                {   
+                    if (Array[row, col] == cell)
+                    {
+                        count += 1;
+                    }
+                    else
+                    {
+                        cell = Array[row, col];
+                        count = 1;
+                    }
+                    if (count != 4 || cell == EmptyDisk) continue;
+                    return true;
+                }
+            }
+            
+            // Check diagonal lines
+            for (var row = 0; row < Rows; row++) 
+            { 
+                for (var col = 0; col < Columns; col++)
+                {
+                    var currentCell = Array[row, col];
+                    if (currentCell != EmptyDisk)
+                    {
+                        // Search right diagonals.
+                        var count = 1;
+                        var search = true;
+                        
+                        while (search)
+                        {
+                            try
+                            {
+                                var nextCell = Array[row + count, col + count];
+                                if (nextCell == currentCell)
+                                {
+                                    count += 1;
+                                }
+                                else
+                                {
+                                    search = false;
+                                }
+                            }
+                            catch (IndexOutOfRangeException)
+                            {
+                                search = false;
+                            }
+                            
+                            if (count != 4) continue;
+                            Console.WriteLine("Winner is diagonal right {0}", currentCell);
+                            return true;
+                        } 
+                        
+                        // Search left diagonals.
+                        count = 1;
+                        search = true;
+                        while (search)
+                        {
+                            try
+                            {
+                                var nextCell = Array[row + count, col - count];
+                                if (nextCell == currentCell)
+                                {
+                                    count += 1;
+                                }
+                                else
+                                {
+                                    search = false;
+                                }
+                            }
+                            catch (IndexOutOfRangeException)
+                            {
+                                search = false;
+                            }
+                            
+                            if (count != 4) continue;
+                            return true;
+                        } 
+                    }
+                } 
+            }
+            return false;
+        }
         
         public Board()
         {
