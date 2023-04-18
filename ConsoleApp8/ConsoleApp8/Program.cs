@@ -226,6 +226,71 @@ namespace ConsoleApp8
         }
 
 }
+public abstract class Player
+{
+    public string Disk { set; get; }
+
+    public Player(string disk)
+    {
+        Disk = disk;
+    }
+    public abstract void MakeTurn(Board board);
+}
+
+public class Human : Player
+{
+    public Human(string disk): base(disk) {}
+
+    public override void MakeTurn(Board board)
+    {
+        while (true)
+        {
+            Console.Write("\n{0} Please enter column number (1-{1}): ", Disk.Trim(), Board.Columns);
+            try
+            {
+                int col = Int32.Parse(Console.ReadLine());
+                if (col is > 0 and <= Board.Columns)
+                {
+                    if (board.IsColumnAvailable(col))
+                    {
+                        board.DropDisk(col, Disk);
+                        return;
+                    }
+                }
+                board.Print();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Column is full or does not exist!");
+                Console.ResetColor();
+            }
+            catch (FormatException)
+            {
+                board.Print();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Only numbers allowed!");
+                Console.ResetColor();
+            }
+        }
+    }
+}
+
+
+public class Bot: Player
+{
+    public Bot(string disk): base(disk) {}
+
+    public override void MakeTurn(Board board)
+    {
+        while (true)
+        {
+            var col = new Random().Next(1, Board.Columns+1);
+            if (board.IsColumnAvailable(col))
+            {
+                board.DropDisk(col, Disk);
+                return;
+            }
+        }
+    }
+}
 
         internal class Program
         {
