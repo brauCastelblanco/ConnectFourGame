@@ -13,44 +13,47 @@
 
         public Board()
         {
-            Array = new string [6, 7];
-
-            for (int i = 0; i < Array.GetLength(0); i++) ////filling the Array with #s
-            {
-                for (int j = 0; j < Array.GetLength(1); j++)
+            Array = new string [Rows, Columns];
+            for (var row = 0; row < Rows; row++) 
+            { 
+                for (var col = 0; col < Columns; col++)
                 {
-                    Array[i, j] = "#";
-                }
+                    Array[row, col] = EmptyDisk;
+                } 
             }
+
         }
 
 
-        public void Print() /////Displaying Array with all the x and ys
+        public void Print()
         {
-            for (int i = 1; i <= 7; i++)
-            {
-                Console.Write(i + "    ");
-            }
+            Console.Clear();
+            Console.WriteLine("{0}{0}Welcome to Take Four!  {1}{1}", Board.BlueDisk, Board.RedDisk);
+            Console.WriteLine();
 
-            Console.WriteLine();
-            Console.WriteLine();
-            for (int i = 0; i < Array.GetLength(0); i++)
+            for (var col = 1; col <= Columns; col++)
             {
-                for (int j = 0; j < Array.GetLength(1); j++)
+                Console.Write("{0}   ", col);
+            }
+            Console.WriteLine();
+            
+            for (var row = 0; row < Rows; row++) 
+            { 
+                for (var col = 0; col < Columns; col++)
                 {
-                    if (j == 6)
-                    {
-                        Console.Write(Array[i, j]);
-                        Console.Write("\n");
+                    if (col == Columns-1) {
+                        Console.Write("{0}\n", Array[row, col]);
+                    } else {
+                        Console.Write(Array[row, col]);
                     }
-                    else
-                    {
-                        Console.Write(Array[i, j] + "    ");
-                    }
-                }
+                } 
             }
+            for (var col = 1; col <= Columns; col++)
+            {
+                Console.Write("{0}   ", col);
+            }
+            Console.WriteLine();
         }
-
 
         public void Win(string disk)
         {
@@ -90,16 +93,16 @@
             }
         }
 
-        public bool IsColumnAvailable(int colNumber)
+        public bool IsColumnAvailable(int col)
         {
-            return Array[0, colNumber] == "#";
+            return Array[0, col-1] == EmptyDisk;
         }
 
         public bool IsFull() ////// checking the whole Array to make sure that it's not empty
         {
             foreach (var cell in Array)
             {
-                if (cell == "#")
+                if (cell == EmptyDisk)
                 {
                     return false;
                 }
@@ -296,12 +299,84 @@
             }
         }
     }
+  public class Game
+    {
+        public Player[] InitPlayers()
+        {
+            Console.Clear();
+            Console.WriteLine("{0}{0}Welcome to Take Four!  {1}{1}", Board.BlueDisk, Board.RedDisk);
 
+            while (true)
+            {
+                Console.Write("Enter number of players (1 or 2): ");
+                
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                    {
+                        Player[] players = { new Human(Board.BlueDisk), new Bot(Board.RedDisk) };
+                        return players;
+                    }
+                    case "2":
+                    {
+                        Player[] players = { new Human(Board.BlueDisk), new Human(Board.RedDisk) };
+                        return players;
+                    }
+                    default:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Wrong input!");
+                        Console.ResetColor();
+                        break;
+                }
+            }
+        }
+
+        public void Play(Board board, Player[] players)
+        {
+            var activePlayer = players[0];
+            
+            board.Print();
+            
+            do
+            {
+                if (board.IsFull())
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nSeems like a draw!");
+                    Console.ResetColor();
+                    return;
+                }
+                
+                // Reassign active player.
+                activePlayer = activePlayer == players[0] ? players[1] : players[0];
+                
+                activePlayer.MakeTurn(board);
+                board.Print();
+                
+            } while (!board.CheckWinner());
+            
+            Thread.Sleep(1000);
+            board.Win(activePlayer.Disk);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nPlayer {0} wins!", activePlayer.Disk.Trim());
+            Console.ResetColor();
+            
+        }
+    }
     internal class Program
     {
         public static void Main(string[] args)
         {
-            Board board = new Board();
+            do
+            {
+                var game = new Game();
+                var players = game.InitPlayers();
+
+                game.Play(new Board(), players);
+
+                Console.Write("\nEnter \"y\" if you want to play more: ");
+            } while (Console.ReadLine() == "y");
         }
     }
 }
