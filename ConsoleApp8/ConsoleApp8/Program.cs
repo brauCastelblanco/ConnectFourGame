@@ -1,5 +1,6 @@
 ﻿namespace ConsoleApp8
 {
+    //Defines the playing board 
     public class Board
     {
         public const int Rows = 6;
@@ -10,7 +11,7 @@
         public const string BlueDisk = "\U0001F535  ";
         public const string RedDisk = "\U0001F534  ";
 
-
+        //Board constructor that creates the matrix of the board
         public Board()
         {
             Array = new string [Rows, Columns];
@@ -24,7 +25,7 @@
 
         }
 
-
+        //Visualizes the board in the console
         public void Print()
         {
             Console.Clear();
@@ -54,7 +55,7 @@
             }
             Console.WriteLine();
         }
-
+        // Returns if there is a winner
         public void Win(string disk)
         {
             for (var row = 0; row < Rows; row++)
@@ -67,7 +68,7 @@
                 }
             }
         }
-
+        // Animation of the disk falling
         private void Dropping(int row, int col, string disk)
         {
             for (var r = 0; r < row; r++)
@@ -79,26 +80,27 @@
                 Print();
             }
         }
-
+        // Place the disk in an available cell
         public void DropDisk(int col, string disk)
         {
             for (var row = Rows - 1; row >= 0; row--)
             {
                 if (Array[row, col - 1] != EmptyDisk) continue;
-                // Animation
+
                 Dropping(row, col - 1, disk);
 
                 Array[row, col - 1] = disk;
                 return;
             }
         }
-
+        // Checks if is possible to drop the disk in the column
         public bool IsColumnAvailable(int col)
         {
             return Array[0, col-1] == EmptyDisk;
         }
 
-        public bool IsFull() ////// checking the whole Array to make sure that it's not empty
+        // Checking the whole Array to make sure that it's not empty
+        public bool IsFull() 
         {
             foreach (var cell in Array)
             {
@@ -110,7 +112,7 @@
 
             return true;
         }
-
+        //Checks possible matches (Vertical/horizontal/Diagonal)
         public bool CheckWinner()
         {
             // Check horizontal lines
@@ -228,6 +230,7 @@
         }
     }
 
+    //Parent class Player
     public abstract class Player
     {
         public string Disk { set; get; }
@@ -239,13 +242,13 @@
 
         public abstract void MakeTurn(Board board);
     }
-
+    // It is a derived from super class player
     public class Human : Player
     {
         public Human(string disk) : base(disk)
         {
         }
-
+     // Allows user to play while there is a column available
         public override void MakeTurn(Board board)
         {
             while (true)
@@ -279,7 +282,7 @@
         }
     }
 
-
+// Derived class from super class player
     public class Bot : Player
     {
         public Bot(string disk) : base(disk)
@@ -299,6 +302,8 @@
             }
         }
     }
+    
+  // Controls game, allows user to pick 1 or 2 players, creating new objects from human or bot class
   public class Game
     {
         public Player[] InitPlayers()
@@ -331,7 +336,7 @@
                 }
             }
         }
-
+    //Checks the winner until there is a win or the board is full
         public void Play(Board board, Player[] players)
         {
             var activePlayer = players[0];
@@ -348,7 +353,7 @@
                     return;
                 }
                 
-                // Reassign active player.
+                // Reassign active player
                 activePlayer = activePlayer == players[0] ? players[1] : players[0];
                 
                 activePlayer.MakeTurn(board);
